@@ -4,7 +4,7 @@ const userController = require('../controllers/userController');
 const { isAuthenticated, isUser } = require('../middlewares/authMiddleware');
 
 // Create a new user
-router.post('/', isAuthenticated, isUser, userController.createUser);
+router.post('/', userController.createUser);
 
 // Get all users
 router.get('/', isAuthenticated, isUser, userController.getAllUsers);
