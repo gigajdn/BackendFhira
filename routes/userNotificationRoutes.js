@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userNotificationController = require('../controllers/userNotificationController');
+const { isAuthenticated, isUser } = require('../middlewares/authMiddleware');
 
 // Create a new user notification
 router.post('/', isAuthenticated, isUser, userNotificationController.createUserNotification);

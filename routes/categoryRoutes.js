@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const categoryController = require('../controllers/categoryController');
+const { isAuthenticated } = require('../middlewares/authMiddleware');
 
 // Create a new category
 router.post('/', isAuthenticated, categoryController.createCategory);
