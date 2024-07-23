@@ -1,11 +1,14 @@
 const Admin = require('../models/Admin');
+const bcrypt = require('bcryptjs');
 
 // Create a new admin
 exports.createAdmin = async (req, res) => {
   try {
-    const admin = new Admin(req.body);
-    await admin.save();
-    res.status(201).send(admin);
+    const { username, email, password } = req.body;
+    const hashedPassword = bcrypt.hashSync(password, 8);
+    const newAdmin = new Admin({ username, email, password: hashedPassword });
+    await newAdmin.save();
+    res.status(201).send(newAdmin);
   } catch (error) {
     res.status(400).send(error);
   }

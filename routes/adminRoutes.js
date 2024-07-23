@@ -7,7 +7,7 @@ const { isAuthenticated, isAdmin } = require('../middlewares/authMiddleware');
 router.post('/', adminController.createAdmin);
 
 // Get all admins
-router.get('/', isAuthenticated, isAdmin, adminController.getAllAdmins);
+router.get('/', adminController.getAllAdmins);
 
 // Get an admin by ID
 router.get('/:id', isAuthenticated, isAdmin, adminController.getAdminById);

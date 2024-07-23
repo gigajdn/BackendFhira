@@ -24,6 +24,7 @@ app.use('/api/reports', require('./routes/reportRoutes'));
 app.use('/api/tracking', require('./routes/trackingRoutes'));
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/user-notifications', require('./routes/userNotificationRoutes'));
+app.use('/api/auth', require('./routes/authRoutes'));
 
 const PORT = process.env.PORT;
 
